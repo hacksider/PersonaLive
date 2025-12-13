@@ -40,7 +40,8 @@ pip install -r requirements.txt
 ### ⏬ Download weights
 1. Download pre-trained weight of based models and other components ([SD V1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5), [sd-vae-ft-mse](https://huggingface.co/stabilityai/sd-vae-ft-mse) and [image_encoder](https://huggingface.co/lambdalabs/sd-image-variations-diffusers/tree/main/image_encoder))
 
-1. Download [pre-trained weights](https://drive.google.com/drive/folders/1GOhDBKIeowkMpBnKhGB8jgEhJt_--vbT?usp=drive_link) into the `./pretrained_weights` folder.
+2. Download pre-trained weights into the `./pretrained_weights` folder.
+    <a href='https://drive.google.com/drive/folders/1GOhDBKIeowkMpBnKhGB8jgEhJt_--vbT?usp=drive_link'><img src='https://img.shields.io/badge/Google%20Drive-5B8DEF?style=for-the-badge&logo=googledrive&logoColor=white'></a> <a href='https://pan.baidu.com/s/1DCv4NvUy_z7Gj2xCGqRMkQ?pwd=gj64'><img src='https://img.shields.io/badge/Baidu%20Netdisk-3E4A89?style=for-the-badge&logo=baidu&logoColor=white'></a> <a href='https://www.alipan.com/s/jyJ9JBqS6Ty'><img src='https://img.shields.io/badge/Aliyun%20Drive-E67E22?style=for-the-badge&logo=alibabacloud&logoColor=white'></a> <a href='https://huggingface.co/huaichang/PersonaLive'><img src='https://img.shields.io/badge/HuggingFace-C8AC50?style=for-the-badge&logo=huggingface&logoColor=white'></a>
 
 Finally, these weights should be orgnized as follows:
 ```
