@@ -37,6 +37,8 @@ def parse_args():
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--use_xformers", type=bool, default=True)
     parser.add_argument("--stream_gen", type=bool, default=True, help='use streaming generation strategy to reduce VRAM usage.')
+    parser.add_argument("--reference_image", type=str, default='', help='Path to reference image. If provided, overrides test_cases from config.')
+    parser.add_argument("--driving_video", type=str, default='', help='Path to driving video. If provided, overrides test_cases from config.')
     args = parser.parse_args()
 
     return args
@@ -169,7 +171,10 @@ def main(args):
         [transforms.Resize((height, width)), transforms.ToTensor()]
     )
 
-    args.test_cases = OmegaConf.load(args.config)["test_cases"]
+    if args.reference_image and args.driving_video:
+        args.test_cases = {args.reference_image: [args.driving_video]}
+    else:
+        args.test_cases = OmegaConf.load(args.config)["test_cases"]
 
     for ref_image_path in list(args.test_cases.keys()):
         for pose_video_path in args.test_cases[ref_image_path]:
@@ -256,7 +261,7 @@ def main(args):
 
             if True:
                 save_vid_path = save_vid_path.replace(save_vid_dir, save_split_vid_dir)
-                save_videos_grid(gen_video, save_vid_path, n_rows=1, fps=25, crf=18)
+                save_videos_grid(gen_video, save_vid_path, n_rows=1, fps=25, crf=18, audio_source=pose_video_path)
 
 if __name__ == "__main__":
     args = parse_args()
